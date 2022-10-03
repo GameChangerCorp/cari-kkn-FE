@@ -4,26 +4,21 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 import LoginPage from './components/login/LoginPage';
 import Dashboard from './components/dashboard/Dashboard';
-import Cookies from 'js-cookie';
+import LoginRoute from './components/login/LoginRoute';
+
 
 function App() {
-  const LoginRoute = (props) => {
-    if(Cookies.get('token') !== undefined){
-      return <Navigate to={'/'} />
-    } else if(Cookies.get('token') === undefined) {
-      return props.children
-    }
-  }
 
 
   return (
     <BrowserRouter>
       <Routes >
           <Route path='/' element={
-            <LoginPage/>
+            <LoginRoute>
+              <LoginPage/>
+            </LoginRoute>
             }/>
           <Route path='/dashboard' element={<Dashboard/>}/>
      </Routes>  

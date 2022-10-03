@@ -1,13 +1,23 @@
+import Cookies from 'js-cookie';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
+import ListKKN from './content/ListKKN';
 
 
 const Dashboard = () => {
+  const navigate = useNavigate(); 
+
+  const handleLogin = () => {
+    Cookies.remove('token')
+    navigate('/')
+
+  }
+
   return (
 <div className='flex flex-row-reverse'>
       <div className=" w-4/5 h-screen bg-secondColor border-gray-200 px-2 sm:px-4 py-2.5 ">
         <div className="container mx-auto">
-        test Content
+          <ListKKN/>
         </div>
       </div>
 
@@ -33,7 +43,7 @@ const Dashboard = () => {
           </li>
         </ul>
         </div>
-        <button className="flex w-2/5 bg-mainColor justify-center items-center p-2 align-center  font-normal text-white rounded-lg hover:bg-gray-100 hover:text-black"> Keluar </button>
+        <button onClick={handleLogin} className="flex w-2/5 bg-mainColor justify-center items-center p-2 align-center  font-normal text-white rounded-lg hover:bg-gray-100 hover:text-black"> Keluar </button>
       </div>
     </aside>
 

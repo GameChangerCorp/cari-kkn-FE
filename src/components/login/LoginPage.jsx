@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie'
+import { Alert } from 'flowbite-react';
 
 const LoginPage = () => {
+    const [showAlert, setShowAlert] = useState(false)
     const [input, setInput] = useState({
         username : "",
         password : ""
@@ -36,12 +38,23 @@ const LoginPage = () => {
             navigate('/dashboard')
         })
         .catch((err) => {
-            console.log(err)
+            setShowAlert(true)
         })
     }
 
     return (
-    <div className="container h-screen max-w-full bg-gray-50 flex justify-center items-center">
+    <div className="container h-screen max-w-full bg-gray-50 flex flex-col justify-center items-center">
+        {showAlert&& 
+            <Alert
+            color="failure">
+            <span className='my-5'>
+              <span className="font-medium">
+                Info alert!
+              </span>
+              {' '}Change a few things up and try submitting again.
+            </span>
+          </Alert>
+        }
         <div className="w-96 h-4/5 py-4 bg-mainColor rounded-lg drop-shadow-2xl">
             <div className="h-2/5 flex flex-col gap-3 justify-center items-center p-5">
                 <h1 className="text-2xl font-bold text-white">Welcome</h1>

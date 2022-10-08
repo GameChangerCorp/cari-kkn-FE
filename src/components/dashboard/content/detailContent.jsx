@@ -1,11 +1,8 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react'
 
-const ListKKN = () => {
+const detailContent = () => {
   return (
-    <div className='container w-5/6 m-10 bg-red-200'>
-      <h1>List of KKN</h1>
-      <div className='container w-6/6 p-3  bg-grayColor'>
+  <div className='container w-6/6 p-3  bg-grayColor'>
       <h1 className='text-lg font-md mb-3'>Detail Page</h1>
 
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -66,9 +63,7 @@ const ListKKN = () => {
         </table>
       </div>      
     </div>
-      
-    </div>
   )
 }
 
-export default ListKKN
+export default detailContent
